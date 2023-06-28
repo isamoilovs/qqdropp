@@ -23,9 +23,10 @@ const HeaderButton = ({ title, icon, active, onPress }: ButtonProps) => {
         } ${
           isHovered
             ? !active &&
-              'transition-colors duration-300 fill-headerBtnTextHover'
-            : !active && 'transition-colors duration-300 fill-headerBtnText'
-        } w-[100px] h-[100px]`}
+              'transition-colors duration-300 fill-headerBtnTextHover transition duration-300 scale-[1.3]'
+            : !active &&
+              'transition-colors duration-300 fill-headerBtnText transition duration-300 scale-1'
+        } `}
       />
     ),
     top: (
@@ -35,9 +36,10 @@ const HeaderButton = ({ title, icon, active, onPress }: ButtonProps) => {
         } ${
           isHovered
             ? !active &&
-              'transition-colors duration-300 fill-headerBtnTextHover'
-            : !active && 'transition-colors duration-300 fill-headerBtnText'
-        }`}
+              'transition-colors duration-300 fill-headerBtnTextHover transition duration-300 scale-[1.3]'
+            : !active &&
+              'transition-colors duration-300 fill-headerBtnText transition duration-300 scale-1'
+        } `}
       />
     ),
   }
@@ -57,17 +59,17 @@ const HeaderButton = ({ title, icon, active, onPress }: ButtonProps) => {
         onClick={onPress}
       >
         <span
-          className={`block relative text-[10px] ${
+          className={`block relative text-[12px] ${
             active ? 'text-headerBtnTextActive' : 'text-headerBtnText'
           } font-bold uppercase ${
-            isHovered &&
-            !active &&
-            'transition-color duration-300 text-headerBtnTextHover'
+            isHovered && !active
+              ? 'transition-color duration-300 text-headerBtnTextHover'
+              : ''
           }
           ${
-            !isHovered &&
-            !active &&
-            'transition-color duration-300 text-headerBtnText'
+            !isHovered && !active
+              ? 'transition-color duration-300 text-headerBtnText'
+              : ''
           }
           `}
         >
